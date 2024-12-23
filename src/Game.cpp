@@ -4,9 +4,13 @@
 
 namespace snake
 {
-void Game::init()
+
+Game::Game()
+    : m_window(sf::VideoMode(800, 600), "Snake"), m_world(sf::Vector2u(800, 600)),
+      m_snake(m_world.getBlockSize())
 {
-    m_window.create(sf::VideoMode(800, 600), "Snake");
+    restartClock();
+    srand(time(nullptr));
 }
 
 void Game::run()
@@ -16,6 +20,7 @@ void Game::run()
         processEvents();
         update();
         render();
+        restartClock();
     }
 }
 
@@ -28,14 +33,61 @@ void Game::processEvents()
         {
             m_window.close();
         }
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) &&
+            m_snake.getDirection() != Direction::DOWN)
+        {
+            m_snake.setDirection(Direction::UP);
+        }
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) &&
+            m_snake.getDirection() != Direction::UP)
+        {
+            m_snake.setDirection(Direction::DOWN);
+        }
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) &&
+            m_snake.getDirection() != Direction::RIGHT)
+        {
+            m_snake.setDirection(Direction::LEFT);
+        }
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) &&
+            m_snake.getDirection() != Direction::LEFT)
+        {
+            m_snake.setDirection(Direction::RIGHT);
+        }
+    }
+}
+
+void Game::restartClock()
+{
+    m_elapsedTime = m_clock.restart();
+}
+
+void Game::update()
+{
+    float timeStep = 1.0f / m_snake.getSpeed();
+
+    if (m_elapsedTime.asSeconds() >= timeStep)
+    {
+        m_snake.tick();
+        m_world.update(m_snake);
+        m_elapsedTime -= sf::seconds(timeStep);
+
+        if (m_snake.hasLost())
+        {
+            m_snake.reset();
+        }
     }
 }
 
 void Game::render()
 {
     m_window.clear();
+    m_world.render(m_window);
+    m_snake.render(m_window);
     m_window.display();
 }
 
-void shutdown() {}
 } // namespace snake

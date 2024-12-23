@@ -2,7 +2,7 @@
 
 namespace snake
 {
-World::World(const sf::Vector2f &windowSize) : m_blockSize(16)
+World::World(const sf::Vector2u &windowSize) : m_blockSize(16)
 {
     respwanApple();
 

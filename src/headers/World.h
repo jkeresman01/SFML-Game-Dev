@@ -12,7 +12,7 @@ namespace snake
 class World
 {
   public:
-    World(const sf::Vector2f &windowSize);
+    World(const sf::Vector2u &windowSize);
     ~World();
 
     uint32_t getBlockSize() const { return m_blockSize; };
