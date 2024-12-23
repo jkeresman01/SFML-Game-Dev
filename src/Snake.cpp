@@ -60,7 +60,7 @@ void Snake::move()
         --m_snakeBody[0].position.x;
         break;
     case Direction::RIGHT:
-        ++m_snakeBody[0].position.y;
+        ++m_snakeBody[0].position.x;
         break;
     case Direction::UP:
         --m_snakeBody[0].position.y;
@@ -131,8 +131,8 @@ void Snake::render(sf::RenderWindow &window)
 
     for (auto it = m_snakeBody.begin() + 1; it != m_snakeBody.end(); ++it)
     {
-        positionX = head->position.x * m_blockSize;
-        positionY = head->position.y * m_blockSize;
+        positionX = it->position.x * m_blockSize;
+        positionY = it->position.y * m_blockSize;
 
         m_body.setPosition(positionX, positionY);
         window.draw(m_body);

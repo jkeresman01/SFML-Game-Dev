@@ -11,6 +11,7 @@ class Game
 {
   public:
     Game();
+    ~Game() = default;
     Game(const Game &) = delete;
     Game(Game &&) = delete;
     Game &operator=(const Game &) = delete;
@@ -22,13 +23,12 @@ class Game
     void processEvents();
     void update();
     void render();
-    void restartClock();
 
   private:
     World m_world;
-    Snake m_snake;
-    sf::Time m_elapsedTime;
     sf::Clock m_clock;
+    Snake m_snake;
+    float m_elapsedTime;
     sf::RenderWindow m_window;
 };
 } // namespace snake

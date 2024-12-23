@@ -1,8 +1,10 @@
 #include "headers/World.h"
 
+#include <iostream>
+
 namespace snake
 {
-World::World(const sf::Vector2u &windowSize) : m_blockSize(16)
+World::World(const sf::Vector2u &windowSize) : m_blockSize(16), m_windowSize(windowSize)
 {
     respwanApple();
 
@@ -33,6 +35,8 @@ World::World(const sf::Vector2u &windowSize) : m_blockSize(16)
 
 void World::respwanApple()
 {
+    std::cout << "Respawing apple!" << std::endl;
+
     uint32_t maxPositionX = (m_windowSize.x / m_blockSize) / 2;
     uint32_t maxPositionY = (m_windowSize.y / m_blockSize) / 2;
 

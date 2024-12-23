@@ -9,7 +9,6 @@ Game::Game()
     : m_window(sf::VideoMode(800, 600), "Snake"), m_world(sf::Vector2u(800, 600)),
       m_snake(m_world.getBlockSize())
 {
-    restartClock();
     srand(time(nullptr));
 }
 
@@ -20,7 +19,7 @@ void Game::run()
         processEvents();
         update();
         render();
-        restartClock();
+        m_elapsedTime += 1.0f;
     }
 }
 
@@ -60,25 +59,21 @@ void Game::processEvents()
     }
 }
 
-void Game::restartClock()
-{
-    m_elapsedTime = m_clock.restart();
-}
-
 void Game::update()
 {
     float timeStep = 1.0f / m_snake.getSpeed();
 
-    if (m_elapsedTime.asSeconds() >= timeStep)
+    if (m_clock.getElapsedTime().asSeconds() >= timeStep)
     {
         m_snake.tick();
         m_world.update(m_snake);
-        m_elapsedTime -= sf::seconds(timeStep);
 
         if (m_snake.hasLost())
         {
             m_snake.reset();
         }
+
+        m_clock.restart();
     }
 }
 

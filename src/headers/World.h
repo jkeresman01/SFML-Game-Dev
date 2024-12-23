@@ -13,7 +13,7 @@ class World
 {
   public:
     World(const sf::Vector2u &windowSize);
-    ~World();
+    ~World() = default;
 
     uint32_t getBlockSize() const { return m_blockSize; };
     void respwanApple();

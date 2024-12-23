@@ -9,8 +9,10 @@ include_directories(src/headers)
 
 set(SOURCE_FILES
     src/Main.cpp
-    # src/Snake.cpp
-    # src/ResourceManager.cpp
+    src/Snake.cpp
+    src/World.cpp
+    src/Game.cpp
+    src/Apple.cpp
 )
 
 add_executable(snake ${SOURCE_FILES})
