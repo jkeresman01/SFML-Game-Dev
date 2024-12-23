@@ -12,7 +12,7 @@ Snake::Snake(uint32_t blockSize)
 
 sf::Vector2i Snake::getPosition() const
 {
-    return m_snakeBody.empty() ? m_snakeBody.front().position : sf::Vector2i(1, 1);
+    return !m_snakeBody.empty() ? m_snakeBody.front().position : sf::Vector2i(1, 1);
 }
 
 void Snake::increaseScore()

@@ -37,8 +37,8 @@ void World::respwanApple()
 {
     std::cout << "Respawing apple!" << std::endl;
 
-    uint32_t maxPositionX = (m_windowSize.x / m_blockSize) / 2;
-    uint32_t maxPositionY = (m_windowSize.y / m_blockSize) / 2;
+    uint32_t maxPositionX = (m_windowSize.x / m_blockSize) - 2;
+    uint32_t maxPositionY = (m_windowSize.y / m_blockSize) - 2;
 
     uint32_t applePositionX = rand() % maxPositionX + 1;
     uint32_t applePositionY = rand() % maxPositionY + 1;
