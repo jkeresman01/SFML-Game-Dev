@@ -45,8 +45,6 @@ void Map::update()
     }
 
     std::memcpy(m_currentGeneration, m_nextGeneration, sizeof(m_currentGeneration));
-    /* m_currentGeneration = m_nextGeneration; */
-    /* changeGenerations(); */
 }
 
 void Map::updateCellState(uint32_t positionX, uint32_t positionY)
