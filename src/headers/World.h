@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Apple.h"
+#include "Snake.h"
+
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -9,18 +12,22 @@ namespace snake
 class World
 {
   public:
-    World();
+    World(const sf::Vector2f &windowSize);
     ~World();
 
     uint32_t getBlockSize() const { return m_blockSize; };
     void respwanApple();
 
-    void update();
+    void update(Snake &snake);
     void render(sf::RenderWindow &window);
 
   private:
+    bool isPlayerOutsideTheWorld(const Snake &snake);
+
+  private:
+    sf::Vector2f m_windowSize;
     sf::Vector2i m_appleCoordinates;
-    sf::CircleShape m_apple;
+    Apple m_apple;
     sf::RectangleShape m_bounds[4];
     uint32_t m_blockSize;
 };
