@@ -9,10 +9,6 @@ At each step in time (in this case, every 2 seconds), the following transitions 
 * Any live cell with more than three live neighbors dies, as if by overpopulation.
 * Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
-## Game Preview ##
-
-![GameOfLife01](https://github.com/jkeresman01/Conway-s-Game-of-Life-/assets/165517653/fc63a34f-84cb-4192-9f39-85bbfe52da50)
-
 ## Running the game ##
 
 If the version of SFML that you want to install is available in the official repository, then install it using your package manager.
