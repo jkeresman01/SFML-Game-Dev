@@ -1,7 +1,5 @@
 # Snake
-The original Blockade from 1976 and its many clones are two-player games. Viewed from a top-down perspective, each player controls a "snake" with a fixed starting position. The "head" of the snake continually moves forward, unable to stop, growing ever longer. It must be steered left, right, up, and down to avoid hitting walls and the body of either snak
-
-# Build the game
+Snake is a genre of action video games where the player maneuvers the end of a growing line, often themed as a snake. The player must keep the snake from colliding with both other obstacles and itself, which gets harder as the snake lengthens.
 
 # Build and run the game with CMake ###
 
