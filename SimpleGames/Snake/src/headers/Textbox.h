@@ -18,12 +18,12 @@ class TextBox
   public:
     TextBox();
     TextBox(uint32_t visibleChars, uint32_t charSize, uint32_t width,
-            const sf::Vector2f screenPosition);
+            const sf::Vector2f &screenPosition);
 
     ~TextBox() { clear(); };
 
     void setup(uint32_t visibleChars, uint32_t charSize, uint32_t width,
-               const sf::Vector2f screenPosition);
+               const sf::Vector2f &screenPosition);
 
     void add(const std::string &message);
     void clear();
