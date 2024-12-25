@@ -10,7 +10,7 @@ class Apple
   public:
     Apple();
 
-    void setPosition(const sf::Vector2i position);
+    void setPosition(const sf::Vector2i &position);
     void render(sf::RenderWindow &window);
 
   private:
