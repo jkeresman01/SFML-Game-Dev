@@ -95,10 +95,12 @@ bool Ball::isBallIntersectingPaddle(const Paddle &paddle)
 
 void Ball::checkForBrickHits(std::list<Brick> &bricks)
 {
-    std::list<Brick>::iterator it;
-    for (it = bricks.begin(); it != bricks.end();)
+    std::list<Brick>::iterator it = bricks.begin();
+
+    while(it != bricks.end())
     {
         bool isBallIntersectingBrick = m_ball.getGlobalBounds().intersects(it->getBounds());
+
         if (isBallIntersectingBrick)
         {
             m_velocity.y = -m_velocity.y;
