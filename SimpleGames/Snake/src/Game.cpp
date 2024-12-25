@@ -19,7 +19,6 @@ void Game::run()
         processEvents();
         update();
         render();
-        m_elapsedTime += 1.0f;
     }
 }
 
