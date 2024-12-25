@@ -44,6 +44,7 @@ class Snake
 
   private:
     void checkCollision();
+    void updatePositionBasedOnDirection();
 
   private:
     SnakeContainerT m_snakeBody;

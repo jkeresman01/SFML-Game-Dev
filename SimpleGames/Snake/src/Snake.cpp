@@ -54,6 +54,11 @@ void Snake::move()
         m_snakeBody[i].position = m_snakeBody[i - 1].position;
     }
 
+    updatePositionBasedOnDirection();
+}
+
+void Snake::updatePositionBasedOnDirection()
+{
     switch (m_direction)
     {
     case Direction::LEFT:
