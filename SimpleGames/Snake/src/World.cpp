@@ -1,7 +1,5 @@
 #include "headers/World.h"
 
-#include <iostream>
-
 namespace snake
 {
 World::World(const sf::Vector2u &windowSize) : m_blockSize(16), m_windowSize(windowSize)
