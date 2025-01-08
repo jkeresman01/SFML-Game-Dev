@@ -4,11 +4,11 @@
 
 namespace sfmlgamedev {
 struct EventInfo {
-  EventInfo() : m_code(0){};
+  EventInfo();
   EventInfo(uint32_t event) : m_code(event){};
 
   union {
-    uint32_t m_code;
+    uint32_t m_code = 0;
   };
 };
 } // namespace sfmlgamedev
